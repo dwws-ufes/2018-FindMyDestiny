@@ -14,9 +14,9 @@
 		<h:panelGroup id="FindMyDestinyPanel">
 			<h1> Welcome to Find My Destiny, <h:outputText value="#{findMyDestinyController.visitor}" />!</h1>
 		</h:panelGroup>
-		<p>Please, tell me your name: <h:inputText value="#{findMyDestinyController.visitor}" /></p>
+		<p>Please, tell me your name: <h:inputText value="#{findMyDestinyController.connectToMySQLDatabase()}" /></p>
 			<f:ajax event="click" render="FindMyDestinyPanel" execute="@this" />
-		<p><p:commandButton value="Enter" ajax="true" render="FindMyDestinyPanel" execyte="@this"/></p>
+		<p><p:commandButton value="Enter" ajax="true" render="FindMyDestinyPanel" execute="@this"/></p>
 	</h:form>
 </h:body>
 </html>
