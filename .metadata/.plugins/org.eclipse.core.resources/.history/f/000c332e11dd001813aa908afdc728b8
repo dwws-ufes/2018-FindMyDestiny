@@ -1,0 +1,32 @@
+package find_my_destiny;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.util.Date;
+import javax.enterprise.inject.Model;
+
+@Model
+public class FindMyDestinyController {
+	private String visitor = "visitor";
+	
+	public String getVisitor() {return visitor;}
+	
+	public void setVisitor(String visitor) {this.visitor= visitor;}
+	
+	public String connectToMySQLDatabase()
+	{
+		try
+		{
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection con=DriverManager.getConnection(  
+					"jdbc:mysql://localhost:3306/FindMyDestinyDB","root","root");
+		}
+		catch(Exception e)
+		{
+			System.out.println("Erro conexao");
+		}
+		
+		return "OK";
+	}
+	public Date getTime() {return new Date();}
+}
