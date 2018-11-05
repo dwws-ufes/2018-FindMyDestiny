@@ -5,13 +5,13 @@ import java.sql.DriverManager;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.inject.Singleton;
 
+@SuppressWarnings("deprecation")
 @ManagedBean
 @SessionScoped
 public final class FindMyDestinyConnection {
 	private static Connection Conn = null;
-	private static final String Database_ServerName = "jdbc:mysql://localhost/find_my_destiny";
+	private static final String Database_ServerName = "jdbc:mysql://localhost:3306/find_my_destiny";
 	private static final String Database_User = "root";
 	private static final String Database_Password = "root";
 	

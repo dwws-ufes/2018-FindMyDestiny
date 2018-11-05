@@ -11,6 +11,7 @@ public class FindMyDestinyController {
 	private String visitor = "visitor";
 	private String name = null;
 	private String username = null;
+    private String email = null;
 	private String cpf = null;
 	private String address = null;
 	private String password = null;
@@ -25,14 +26,16 @@ public class FindMyDestinyController {
 	public String getAddress() {return address;}
 	public String getPassword() {return password;}
 	public String getTelephone() {return telephone;}
+    public String getEmail() {return email;}
 	
 	public void setVisitor(String visitor) {this.visitor= visitor;}
 	public void setName(String name) {this.name= name;}
 	public void setUsername(String username) {this.username= username;}
-	public void setCpf(String Cpf) {this.cpf= cpf;}
+	public void setCpf(String cpf) {this.cpf= cpf;}
 	public void setAddress(String address) {this.address= address;}
 	public void setPassword(String password) {this.password= password;}
 	public void setTelephone(String telephone) {this.telephone= telephone;}
+    public void setEmail(String email) {this.email= email;}
 	
 	public FindMyDestinyConnection CreateConnection()
 	{
@@ -48,8 +51,8 @@ public class FindMyDestinyController {
 		{
 			java.sql.Connection Conn = Connection.getConnection();
 			Statement statement = Conn.createStatement();
-		
-			statement.executeUpdate("INSERT INTO user (name, username, cpf, address, telephone, password) VALUES('"+name+"', '"+username+"', '"+cpf+"','"+address+"','"+telephone+"','"+password+"');");
+            
+			statement.executeUpdate("INSERT INTO user (name, email, username, cpf, address, telephone, password) VALUES('"+name+"','"+email+"','"+username+"', '"+cpf+"','"+address+"','"+telephone+"','"+password+"');");
 		}
 		catch(Exception e)
 		{

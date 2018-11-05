@@ -47,9 +47,6 @@
 	}
 	</style>
 	
-	<script src="jquery-3.3.1.min.js">
-		document.getElementById('presentation_container').style.maxWidth='100%';
-	</script>
   </h:head>
   
   <h:body>
@@ -99,8 +96,8 @@
             <div class="contents parallax" style="text-align:center">
               <h2 class="head-title" style="">Sua viagem dos sonhos começa agora</h2>
               <div class="row">
-              	<div class="col-md-4" />
-              	<p class="col-md-4">lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse unde blanditiis nostrum mollitia aliquam sed. Numquam ipsum unde repellendus similique autem non ab quibusdam enim provident distinctio! Fugit tenetur, iusto.</p>
+              	<div class="col-md-3" />
+              	<p class="col-md-6">Olá, somos Find My Destiny. Prestamos um serviço inteligente que te ajudará a viajar com qualidade, aproveitando ao máximo o que cada lugar de destino tem a oferecer. Conheça nosso serviço, junte-se a nós.</p>
               </div>
               <div class="header-button" style="width=800px;margin:auto;">
                 <a href="#signup" class="btn btn-border">Começar</a>
@@ -122,22 +119,8 @@
         </div>
         <div class="col-md-10">
         	<h:form id="registration_form">
-        		<h:panelGroup id="registration_panel">
-          			<p>Nome Completo<br />
-          			<p:inputText name="name" value="#{findMyDestinyController.name}" required="true" /><br /></p>
-          			<p>Nome de usuário<br />
-          			<h:inputText type="text" name="username" value="#{findMyDestinyController.username}" required="true" /><br /></p>
-          			<p>CPF<br />
-          			<h:inputText type="text" name="cpf" value="#{findMyDestinyController.cpf}" /><br /></p>
-	          		<p>Endereço<br />
-    	      		<h:inputText type="text" name="address" value="#{findMyDestinyController.address}" /><br /></p>
-        	  		<p>Telefone<br />
-          			<h:inputText type="text" name="telephone" value="#{findMyDestinyController.telephone}" /><br /></p>
-          			<p>Senha<br />
-          			<p:password feedback="true" name="password" value="#{findMyDestinyController.password}" /><br /></p>
-          			<br /><p:commandButton value="Confirmar dados" ajax="true" actionListener="#{findMyDestinyController.registerNewUser()}" styleClass="ui-priority-primary" />
-          		</h:panelGroup>
-          	</h:form>
+				<ui:include src="registration.xhtml" />
+            </h:form>
         </div>
       </div>
     </div>

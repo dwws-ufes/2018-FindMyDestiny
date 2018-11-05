@@ -1,6 +1,49 @@
-<input type="text" name="name">Nome completo <br>
-<input type="text" name="username">Nome de usu·rio<br>
-<input type="text" name="cpf">CPF<br>
-<input type="text" name="endereco">EndereÁo<br>
-<input type="text" name="telephone">Telefone<br>
-<input type="password" name="password">Senha<br>
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+
+<h:panelGroup id="registration_panel">
+	<div class="row">
+		<div class="col-md-2" style="text-align:right;">Nome Completo</div>
+    	<div class="col-md-6"><p:inputText name="name" value="#{findMyDestinyController.name}" required="true" size="80"/><br /></div>
+	</div>
+	<br />
+	<div class="row">
+		<div class="col-md-2" style="text-align:right;">Nome de usu√°rio</div>
+    	<div class="col-md-6"><p:inputText name="username" value="#{findMyDestinyController.username}" required="true" size="40" /><br /></div>
+	</div>
+	<br />
+	<div class="row">
+		<div class="col-md-2" style="text-align:right;">E-mail</div>
+    	<div class="col-md-6"><p:inputText name="email" value="#{findMyDestinyController.email}" required="true" size="40" /><br /></div>
+	</div>
+	<br />
+	<div class="row">
+		<div class="col-md-2" style="text-align:right;">CPF</div>
+    	<div class="col-md-2"><p:inputText name="cpf" value="#{findMyDestinyController.cpf}" required="true"/><br /></div>
+	</div>
+	<br />
+	<div class="row">
+		<div class="col-md-2" style="text-align:right;">Endere√ßo</div>
+    	<div class="col-md-2"><p:inputText name="address" value="#{findMyDestinyController.address}" required="true"/><br /></div>
+	</div>
+	<br />
+	<div class="row">
+		<div class="col-md-2" style="text-align:right;">Telefone</div>
+    	<div class="col-md-2"><p:inputText name="telephone" value="#{findMyDestinyController.telephone}" required="true"/><br /></div>
+	</div>
+	<br />
+	<div class="row">
+		<div class="col-md-2" style="text-align:right">Senha</div>
+    	<div class="col-md-2"><p:password type="password" feedback="true" name="password" value="#{findMyDestinyController.password}" required="true" /><br /></div>
+	</div>
+	<br />
+	<div align="center">
+		<button class="btn btn-common btn-effect" type="submit" value="Confirmar dados" ajax="true" actionListener="#{findMyDestinyController.registerNewUser()}" >Confirmar dados</button>
+	</div>
+</h:panelGroup>
+
+</html>
