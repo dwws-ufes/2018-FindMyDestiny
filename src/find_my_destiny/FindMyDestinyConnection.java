@@ -4,37 +4,41 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 import javax.enterprise.inject.Model;
+import javax.inject.Singleton;
 
-@Model
-public class FindMyDestinyConnection {
-	private String ConnectionName;
-	private Connection Conn;
-	private static final String Driver_Name = "com.mysql.jdbc.Driver";
-	private static final String Database_Address = "jdbc:mysql://localhost:3306/FindMyDestinyDB";
+import com.mysql.cj.jdbc.MysqlDataSource;
+
+@Singleton
+public final class FindMyDestinyConnection {
+	private static Connection Conn = null;
+	private static final String Database_ServerName = "jdbc:mysql://localhost:3306/FindMyDestinyDB";
 	private static final String Database_User = "root";
 	private static final String Database_Password = "root";
 	
-	public FindMyDestinyConnection(String Name)
+	public FindMyDestinyConnection()
 	{
-		ConnectionName = Name;		
+		
 	}
 	
-	public String ConnectToMySQLDatabase()
+	public boolean OpenConnection()
 	{
 		try
-		{
-			Class.forName(Driver_Name);
-			Conn = DriverManager.getConnection(Database_Address, Database_User, Database_Password);
+		{	
+			Conn = DriverManager.getConnection(Database_ServerName + 
+					"?user="+Database_User+
+					"&password="+Database_Password);
 		}
 		catch(Exception e)
 		{
-			System.out.println("Error: connction not opened");
+			System.out.println("Error: connection not opened");
+			e.printStackTrace();
+			return false;
 		}
 		
-		return "Ok";
+		return true;
 	}
 	
-	public void CloseConnection()
+	public static boolean close()
 	{
 		try
 		{
@@ -42,13 +46,13 @@ public class FindMyDestinyConnection {
 		}
 		catch(Exception e)
 		{
-			System.out.println("Error: connection can not closed successfully");
+			return false; 
 		}
+		return true;
 	}
 	
 	public void PrintConnection()
 	{
 		System.out.println("Connection info:");
-		System.out.println("Name: " + ConnectionName);
 	}
 }
