@@ -24,7 +24,32 @@
     <link rel="stylesheet" href="css/nivo-lightbox.css" />
     <link rel="stylesheet" href="css/main.css" />    
     <link rel="stylesheet" href="css/responsive.css" />
+    
+	<style>
+	.parallax {
+    	/* The image used */
+    	background-image: url("wide_city_2.jpg");
 
+	    /* Set a specific height */
+    	height: 100%;
+
+    	/* Create the parallax scrolling effect */
+    	background-attachment: fixed;
+    	background-position: center;
+    	background-repeat: no-repeat;
+    	background-size: cover;
+	}
+	
+	#presentation_container.container
+	{
+		min-width: 100%;
+		padding:0;
+	}
+	</style>
+	
+	<script src="jquery-3.3.1.min.js">
+		document.getElementById('presentation_container').style.maxWidth='100%';
+	</script>
   </h:head>
   
   <h:body>
@@ -41,7 +66,7 @@
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto w-100 justify-content-end">
               <li class="nav-item">
-                <a class="nav-link page-scroll" href="#home">Home</a>
+                <a class="nav-link page-scroll" href="#home">Início</a>
               </li>
               <li class='nav-item'>
               	<a class="nav-link page-scroll" href="#signup">Faça parte</a>
@@ -68,22 +93,19 @@
           </div>
         </div>
       </nav>  
-      <div class="container">      
+      <div id='presentation_container' class="container">      
         <div class="row space-100">
-          <div class="col-lg-7 col-md-12 col-xs-12">
-            <div class="contents">
-              <h2 class="head-title">A viagem dos seus sonhos <br /> começa agora!</h2>
-              <p>lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse unde blanditiis nostrum mollitia aliquam sed. Numquam ipsum unde repellendus similique autem non ab quibusdam enim provident distinctio! Fugit tenetur, iusto.</p>
-              <div class="header-button">
-                <a href="#" class="btn btn-border-filled">Learn More</a>
-                <a href="#" class="btn btn-border">Get Started</a>
+          <div class="col-lg-12 col-md-12 col-xs-12">
+            <div class="contents parallax" style="text-align:center">
+              <h2 class="head-title" style="">Sua viagem dos sonhos começa agora</h2>
+              <div class="row">
+              	<div class="col-md-4" />
+              	<p class="col-md-4">lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse unde blanditiis nostrum mollitia aliquam sed. Numquam ipsum unde repellendus similique autem non ab quibusdam enim provident distinctio! Fugit tenetur, iusto.</p>
+              </div>
+              <div class="header-button" style="width=800px;margin:auto;">
+                <a href="#signup" class="btn btn-border">Começar</a>
               </div>
             </div>
-          </div>
-          <div class="col-lg-5 col-md-12 col-xs-12">
-            <div class="intro-img">
-              <img src="img/intro-mobile.png" alt="" />
-            </div>            
           </div>
         </div> 
       </div>             
@@ -102,7 +124,7 @@
         	<h:form id="registration_form">
         		<h:panelGroup id="registration_panel">
           			<p>Nome Completo<br />
-          			<h:inputText name="name" id="ajax" value="#{findMyDestinyController.name}" required="true" /><br /></p>
+          			<p:inputText name="name" value="#{findMyDestinyController.name}" required="true" /><br /></p>
           			<p>Nome de usuário<br />
           			<h:inputText type="text" name="username" value="#{findMyDestinyController.username}" required="true" /><br /></p>
           			<p>CPF<br />
