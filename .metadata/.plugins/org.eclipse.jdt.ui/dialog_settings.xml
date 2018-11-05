@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<item value="C:\Users\Elogroup\Downloads" key="org.eclipse.jdt.ui.lastextjar"/>
+	<item value="C:\Users\Elogroup\wildfly-13.0.0.Final\modules\com\mysql\main" key="org.eclipse.jdt.ui.lastextjar"/>
 	<item value="C:\Users\Elogroup\Downloads\javax.faces-2.2.9.jar" key="org.eclipse.jdt.ui.lastuserlibrary"/>
 	<item value="480,510" key="UserLibraryLoadSaveDialog.size"/>
 	<section name="RefactoringWizard.preview">
@@ -33,12 +33,14 @@
 	<section name="quick_assist_proposal_size">
 	</section>
 	<section name="BuildPathsPropertyPage">
-		<item value="0" key="pageIndex"/>
+		<item value="2" key="pageIndex"/>
 	</section>
 	<section name="NewPackageWizardPage">
 		<item value="false" key="create_package_info_java"/>
 	</section>
 	<section name="completion_proposal_size">
+		<item value="243" key="size.y"/>
+		<item value="355" key="size.x"/>
 	</section>
 	<section name="JavaElementSearchActions">
 	</section>
