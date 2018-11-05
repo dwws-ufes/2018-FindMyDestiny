@@ -31,4 +31,12 @@ public class FindMyDestinyServlet extends HttpServlet{
 			Writer.write("<h1>Hello, " + Request.getParameter("visitor") + "!</h1>");
 		}	
 	}
+	
+	@Override
+	protected void doPost(HttpServletRequest Request, HttpServletResponse Response)
+			throws ServletException, IOException
+	{
+		Response.setContentType("text/html");
+		
+	}
 }

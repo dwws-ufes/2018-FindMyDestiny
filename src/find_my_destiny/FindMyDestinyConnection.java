@@ -3,15 +3,15 @@ package find_my_destiny;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-import javax.enterprise.inject.Model;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.inject.Singleton;
 
-import com.mysql.cj.jdbc.MysqlDataSource;
-
-@Singleton
+@ManagedBean
+@SessionScoped
 public final class FindMyDestinyConnection {
 	private static Connection Conn = null;
-	private static final String Database_ServerName = "jdbc:mysql://localhost:3306/FindMyDestinyDB";
+	private static final String Database_ServerName = "jdbc:mysql://localhost/find_my_destiny";
 	private static final String Database_User = "root";
 	private static final String Database_Password = "root";
 	
@@ -24,9 +24,9 @@ public final class FindMyDestinyConnection {
 	{
 		try
 		{	
-			Conn = DriverManager.getConnection(Database_ServerName + 
-					"?user="+Database_User+
-					"&password="+Database_Password);
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Conn = DriverManager.getConnection(Database_ServerName+
+					"?user="+Database_User+"&password="+Database_Password+"&useTimezone=true&serverTimezone=UTC");
 		}
 		catch(Exception e)
 		{
@@ -55,4 +55,6 @@ public final class FindMyDestinyConnection {
 	{
 		System.out.println("Connection info:");
 	}
+	
+	public Connection getConnection() {return Conn;}
 }
