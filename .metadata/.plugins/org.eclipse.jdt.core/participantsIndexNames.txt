@@ -1,3 +1,0 @@
-INDEX VERSION 1.131
-W:\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\672111163.index
-\FindMyDestiny\src
