@@ -1,3 +1,5 @@
 .recommenders/*
-.metadata/*
+.metadata/
 /target/
+.settings
+.settings/org.eclipse.wst.common.component
