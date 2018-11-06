@@ -2,4 +2,8 @@
 .metadata/
 /target/
 .settings
-.settings/org.eclipse.wst.common.component
+Servers
+RemoteSystemsTempFiles
+target
+libraries
+build
