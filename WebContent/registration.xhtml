@@ -5,8 +5,9 @@
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:p="http://primefaces.org/ui">
 
+<h:form id="registration_form">
 <h:panelGroup id="registration_panel">
-	<div class="row">
+	<div class="row" align="center">
 		<div class="col-md-2" style="text-align:right;">Nome Completo</div>
     	<div class="col-md-6"><p:inputText name="name" value="#{findMyDestinyController.name}" required="true" size="80"/><br /></div>
 	</div>
@@ -41,9 +42,9 @@
     	<div class="col-md-2"><p:password type="password" feedback="false" name="password" value="#{findMyDestinyController.password}" required="true" /><br /></div>
 	</div>
 	<br />
-	<div align="center">
-		<button class="btn btn-common btn-effect" type="submit" value="Confirmar dados" ajax="true" actionListener="#{findMyDestinyController.registerNewUser()}" >Confirmar dados</button>
+	<div>
+		<p:commandButton styleClass="btn btn-common btn-effect" value="Confirmar dados" ajax="true" actionListener="#{findMyDestinyController.registerNewUser}" />
 	</div>
 </h:panelGroup>
-
+</h:form>
 </html>

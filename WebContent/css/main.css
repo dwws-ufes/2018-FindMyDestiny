@@ -128,10 +128,10 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
-  background-color: #2dfbff;
-  background-image: -webkit-linear-gradient(bottom right, #3c96ff, #2dfbff);
-  background-image: -o-linear-gradient(bottom right, #3c96ff, #2dfbff);
-  background-image: linear-gradient(to top left, #3c96ff, #2dfbff);
+  background-color: #3c96ff;
+  background-image: -webkit-linear-gradient(bottom right, #3c96ff, #3c96ff);
+  background-image: -o-linear-gradient(bottom right, #3c96ff, #3c96ff);
+  background-image: linear-gradient(to top left, #3c96ff, #3c96ff);
   position: relative;
 }
 
@@ -162,9 +162,9 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
 }
 
 .btn-common {
-  background-image: -moz-linear-gradient(0deg, #3c96ff 0%, #2dfbff 100%);
-  background-image: -webkit-linear-gradient(0deg, #3c96ff 0%, #2dfbff 100%);
-  background-image: -ms-linear-gradient(0deg, #3c96ff 0%, #2dfbff 100%);
+  background-image: -moz-linear-gradient(0deg, #3c96ff 0%, #3c96ff 100%);
+  background-image: -webkit-linear-gradient(0deg, #3c96ff 0%, #3c96ff 100%);
+  background-image: -ms-linear-gradient(0deg, #3c96ff 0%, #3c96ff 100%);
   position: relative;
   z-index: 1;
 }
@@ -256,7 +256,7 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
   border-width: 2px;
   border-color: #3c96ff;
   border-style: solid;
-  background: linear-gradient(to right, #3c96ff 0%, #2dfbff 100%);
+  background: linear-gradient(to right, #3c96ff 0%, #3c96ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: all 0.3s ease-in-out;
@@ -266,7 +266,7 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
 }
 
 .btn-apple i {
-  background: linear-gradient(to right, #3c96ff 0%, #2dfbff 100%);
+  background: linear-gradient(to right, #3c96ff 0%, #3c96ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -274,7 +274,7 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
 .btn-apple:hover,
 .btn-apple:active,
 .btn-apple:focus {
-  background: linear-gradient(to right, #3c96ff 0%, #2dfbff 100%) !important;
+  background: linear-gradient(to right, #3c96ff 0%, #3c96ff 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
 }
@@ -500,7 +500,7 @@ button:focus {
 }
 
 .back-to-top i {
-  background: linear-gradient(to right, #3c96ff 0%, #2dfbff 100%);
+  background: linear-gradient(to right, #3c96ff 0%, #3c96ff 100%);
   -webkit-background-clip: text;
   font-size: 20px;
   -webkit-transition: all 0.3s ease-in-out;
@@ -518,7 +518,7 @@ button:focus {
 }
 
 .menu-bg {
-  background: -webkit-linear-gradient(left, #3c96ff 0%, #2dfbff 100%) !important;
+  background: -webkit-linear-gradient(left, #3c96ff 0%, #3c96ff 100%) !important;
   background: linear-gradient(to right, #3c96ff 0%, #3c96ff 100%) !important;
   box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.1);
   z-index: 9999;
@@ -629,9 +629,9 @@ button:focus {
   height: 100%;
   top: 0px;
   left: 0px;
-  background-image: -moz-linear-gradient(0deg, #3c96ff 0%, #2dfbff 100%);
-  background-image: -webkit-linear-gradient(0deg, #3c96ff 0%, #2dfbff 100%);
-  background-image: -ms-linear-gradient(0deg, #3c96ff 0%, #2dfbff 100%);
+  background-image: -moz-linear-gradient(0deg, #3c96ff 0%, #3c96ff 100%);
+  background-image: -webkit-linear-gradient(0deg, #3c96ff 0%, #3c96ff 100%);
+  background-image: -ms-linear-gradient(0deg, #3c96ff 0%, #3c96ff 100%);
 }
 
 .hero-area .contents {
@@ -688,9 +688,9 @@ button:focus {
   height: 100%;
   top: 0px;
   left: 0px;
-  background-image: -moz-linear-gradient(0deg, #3c96ff 0%, #2dfbff 100%);
-  background-image: -webkit-linear-gradient(0deg, #3c96ff 0%, #2dfbff 100%);
-  background-image: -ms-linear-gradient(0deg, #3c96ff 0%, #2dfbff 100%);
+  background-image: -moz-linear-gradient(0deg, #3c96ff 0%, #3c96ff 100%);
+  background-image: -webkit-linear-gradient(0deg, #3c96ff 0%, #3c96ff 100%);
+  background-image: -ms-linear-gradient(0deg, #3c96ff 0%, #3c96ff 100%);
 }
 
 .hero-area-2 .contents {
@@ -984,6 +984,8 @@ button:focus {
 .single-feature:hover {
   box-shadow: 0px 0px 16px rgba(131, 131, 131, 0.35);
 }
+
+
 
 /* ==========================================================================
  Features Section Start
@@ -2320,7 +2322,7 @@ footer .menu li a:hover {
 
 #counter .bg-color-1 {
   background-image: -moz-linear-gradient(0deg, #3c96ff 0%, #2dfbff 100%);
-  background-image: -webkit-linear-gradient(0deg, #3c96ff 0%, #2dfbff 100%);
+  background-image: -webkit-linear-gradient(0deg, #3c96ff 0%, #3c96ff 100%);
   background-image: -ms-linear-gradient(0deg, #3c96ff 0%, #2dfbff 100%);
 }
 

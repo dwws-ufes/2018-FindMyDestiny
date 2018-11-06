@@ -1,6 +1,7 @@
 package find_my_destiny;
 
 import find_my_destiny.FindMyDestinyConnection;
+import find_my_destiny.FindMyDestinyI18n;
 
 import java.sql.Statement;
 import java.util.Date;

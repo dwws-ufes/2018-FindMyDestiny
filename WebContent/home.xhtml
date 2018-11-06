@@ -63,16 +63,16 @@
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto w-100 justify-content-end">
               <li class="nav-item">
-                <a class="nav-link page-scroll" href="#home">Início</a>
+                <a class="nav-link page-scroll" href="#home">#{findMyDestinyI18n.getI18nMessage("nav_home")}</a>
               </li>
               <li class='nav-item'>
-              	<a class="nav-link page-scroll" href="#signup">Faça parte</a>
+              	<a class="nav-link page-scroll" href="#signup">#{findMyDestinyI18n.getI18nMessage("nav_signup")}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link page-scroll" href="#app-features">Features</a>
+                <a class="nav-link page-scroll" href="#app-features">#{findMyDestinyI18n.getI18nMessage("nav_features")}</a>
               </li>  
               <li class="nav-item">
-                <a class="nav-link page-scroll" href="#screenshots">Screenshots</a>
+                <a class="nav-link page-scroll" href="#screenshots">#{findMyDestinyI18n.getI18nMessage("nav_find")}</a>
               </li>                            
               <li class="nav-item">
                 <a class="nav-link page-scroll" href="#testimonial">Testimonial</a>
@@ -84,7 +84,7 @@
                 <a class="nav-link page-scroll" href="#download">Download</a>
               </li> 
               <li class="nav-item">
-                <a class="nav-link page-scroll" href="#map-area">Contact</a>
+                <a class="nav-link page-scroll" href="#map-area">#{findMyDestinyI18n.getI18nMessage("nav_contact")}</a>
               </li> 
             </ul>
           </div>
@@ -116,10 +116,8 @@
           <p class="btn btn-subtitle wow fadeInDown" data-wow-delay="0.2s">Faça parte</p>
           <h2 class="section-title wow fadeIn" data-wow-delay="0.2s">Gostaríamos de saber sobre você</h2>
         </div>
-        <div class="col-md-10">
-        	<h:form id="registration_form">
-				<ui:include src="registration.xhtml" />
-            </h:form>
+        <div class="col-md-12">
+			<ui:include src="registration.xhtml" />
         </div>
       </div>
     </div>
