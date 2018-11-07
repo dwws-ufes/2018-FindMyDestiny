@@ -5,46 +5,49 @@
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:p="http://primefaces.org/ui">
 
-<h:form id="registration_form">
-<h:panelGroup id="registration_panel">
 	<div class="row" align="center">
-		<div class="col-md-2" style="text-align:right;">Nome Completo</div>
+		<div class="col-md-3" style="text-align:right;">Nome Empresa</div>
+    	<div class="col-md-6"><p:inputText name="name" value="#{findMyDestinyController.name}" required="true" size="80"/><br /></div>
+	</div>
+	<br />
+	<div class="row" align="center">
+		<div class="col-md-3" style="text-align:right;">Nome do responável</div>
     	<div class="col-md-6"><p:inputText name="name" value="#{findMyDestinyController.name}" required="true" size="80"/><br /></div>
 	</div>
 	<br />
 	<div class="row">
-		<div class="col-md-2" style="text-align:right;">Nome de usuário</div>
+		<div class="col-md-3" style="text-align:right;">Login de acesso</div>
     	<div class="col-md-6"><p:inputText name="username" value="#{findMyDestinyController.username}" required="true" size="40" /><br /></div>
 	</div>
 	<br />
 	<div class="row">
-		<div class="col-md-2" style="text-align:right;">E-mail</div>
+		<div class="col-md-3" style="text-align:right;">E-mail responsável</div>
     	<div class="col-md-6"><p:inputText name="email" value="#{findMyDestinyController.email}" required="true" size="40" /><br /></div>
 	</div>
 	<br />
 	<div class="row">
-		<div class="col-md-2" style="text-align:right;">CPF</div>
+		<div class="col-md-3" style="text-align:right;">CNPJ</div>
     	<div class="col-md-2"><p:inputText name="cpf" value="#{findMyDestinyController.cpf}" required="true"/><br /></div>
 	</div>
 	<br />
 	<div class="row">
-		<div class="col-md-2" style="text-align:right;">Endereço</div>
+		<div class="col-md-3" style="text-align:right;">Endereço</div>
     	<div class="col-md-2"><p:inputText name="address" value="#{findMyDestinyController.address}" required="true"/><br /></div>
 	</div>
 	<br />
 	<div class="row">
-		<div class="col-md-2" style="text-align:right;">Telefone</div>
-    	<div class="col-md-2"><p:inputText name="telephone" value="#{findMyDestinyController.telephone}" required="true"/><br /></div>
+		<div class="col-md-3" style="text-align:right;">Telefone 1</div>
+    	<div class="col-md-2"><p:inputText name="telephone1" value="#{findMyDestinyController.telephone}" required="true"/><br /></div>
+		<div class="col-md-3" style="text-align:right;">Telefone 2</div>
+    	<div class="col-md-2"><p:inputText name="telephone2" value="#{findMyDestinyController.telephone}" required="true"/><br /></div>
 	</div>
 	<br />
 	<div class="row">
-		<div class="col-md-2" style="text-align:right">Senha</div>
+		<div class="col-md-3" style="text-align:right">Senha</div>
     	<div class="col-md-2"><p:password type="password" feedback="false" name="password" value="#{findMyDestinyController.password}" required="true" /><br /></div>
 	</div>
 	<br />
 	<div class="submit-button">
-		<p:commandButton id="submit" styleClass="btn btn-common btn-effect" value="Confirmar dados" ajax="true" actionListener="#{findMyDestinyController.registerNewUser()}" />
+		<p:commandButton id="submit_enterprise" styleClass="btn btn-common btn-effect" value="Confirmar dados" ajax="true" actionListener="#{findMyDestinyController.registerNewUser()}" />
 	</div>
-</h:panelGroup>
-</h:form>
 </html>

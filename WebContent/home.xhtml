@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="css/nivo-lightbox.css" />
     <link rel="stylesheet" href="css/main.css" />    
     <link rel="stylesheet" href="css/responsive.css" />
+
+	<script src='js/find_my_destiny.js'></script>
     
 	<style>
 	.parallax {
@@ -111,13 +113,11 @@
               <br /><br />
               <h:form>
               	<div class="row justify-content-center">
-              		<div class="col-lg-7 col-md-12 col-xs-12">
-              		<div class="row">
-              			<div class="col-12 form-line form-group form-search">
+              		<div class="col-lg-12 col-md-12 col-xs-12">		
+              			<div class="form-line form-group form-search">
               				<input class="form-control search-place" type="email" name="search-bar" placeholder="#{findMyDestinyI18n.getI18nMessage('nav_find')}" /> 
               				<button class="btn btn-common btn-search" type="submit" >#{findMyDestinyI18n.getI18nMessage("nav_find")}</button>
               			</div>
-              		</div>
               		</div>
               	</div>
               </h:form>
@@ -137,10 +137,24 @@
         <div class="section-header">   
           <p class="btn btn-subtitle wow fadeInDown" data-wow-delay="0.2s">#{findMyDestinyI18n.getI18nMessage("nav_signup")}</p>
           <h2 class="section-title wow fadeIn" data-wow-delay="0.2s">#{findMyDestinyI18n.getI18nMessage("registration_message")}</h2>
+		</div>
+		<div class="row col-lg-12 col-md-12 col-sm-12" style="padding-bottom:10px">
+		  <div class="col-3" />
+		  <div class="col-2"><button id="form_private_person" class="btn btn-common btn-effect" value="Pessoa Física" ajax="true" onclick="SelectPersonForm('private_person')">Pessoa Física</button></div>
+		  <div class="col-2" />
+		  <div class="col-3"><button id="form_enterprise" class="btn btn-common btn-effect" value="Empresa" ajax="true" onclick="SelectPersonForm('enterprise')" >Empresa</button></div>
         </div>
-        <div class="col-md-12">
-			<ui:include src="registration.xhtml" />
-        </div>
+		<br />
+		<h:form id="registration_form">
+			<h:panelGroup id="registration_panel">
+        		<div id="registration_private_person" class="col-md-12" hidden="true" >
+					<ui:include src="registration_private.xhtml" />
+        		</div>
+        		<div id="registration_enterprise" class="col-md-12" hidden="true" >
+					<ui:include src="registration_enterprise.xhtml" />
+				</div>
+			</h:panelGroup>
+		</h:form>
       </div>
     </div>
     <!-- signup Section End -->
