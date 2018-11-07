@@ -40,10 +40,19 @@
     	background-size: cover;
 	}
 	
-	#presentation_container.container
+	#presentation.container
 	{
-		min-width: 100%;
+		max-width: 100%;
 		padding:0;
+	}
+	
+	.search-place, .search-place:focus
+	{
+		padding-top:10px;
+		background-color:#ffffff4d;
+		font-size:23px;
+		text-align:left;
+		color:#ffd39b;
 	}
 	</style>
 	
@@ -90,7 +99,7 @@
           </div>
         </div>
       </nav>  
-      <div id='presentation_container' class="container">      
+      <div id='presentation' class="container">      
         <div class="row space-100">
           <div class="col-lg-12 col-md-12 col-xs-12">
             <div class="contents parallax" style="text-align:center">
@@ -99,6 +108,19 @@
               	<div class="col-md-3" />
               	<p class="col-md-6">Olá, somos Find My Destiny. Prestamos um serviço inteligente que te ajudará a viajar com qualidade, aproveitando ao máximo o que cada lugar de destino tem a oferecer. Conheça nosso serviço, junte-se a nós.</p>
               </div>
+              <br /><br />
+              <h:form>
+              	<div class="row justify-content-center">
+              		<div class="col-lg-7 col-md-12 col-xs-12">
+              		<div class="row">
+              			<div class="col-12 form-line form-group form-search">
+              				<input class="form-control search-place" type="email" name="search-bar" placeholder="#{findMyDestinyI18n.getI18nMessage('nav_find')}" /> 
+              				<button class="btn btn-common btn-search" type="submit" >#{findMyDestinyI18n.getI18nMessage("nav_find")}</button>
+              			</div>
+              		</div>
+              		</div>
+              	</div>
+              </h:form>
               <div class="header-button" style="width=800px;margin:auto;">
                 <a href="#signup" class="btn btn-border">Começar</a>
               </div>
@@ -113,8 +135,8 @@
     <div id="signup" class="section">
       <div class="container">
         <div class="section-header">   
-          <p class="btn btn-subtitle wow fadeInDown" data-wow-delay="0.2s">Faça parte</p>
-          <h2 class="section-title wow fadeIn" data-wow-delay="0.2s">Gostaríamos de saber sobre você</h2>
+          <p class="btn btn-subtitle wow fadeInDown" data-wow-delay="0.2s">#{findMyDestinyI18n.getI18nMessage("nav_signup")}</p>
+          <h2 class="section-title wow fadeIn" data-wow-delay="0.2s">#{findMyDestinyI18n.getI18nMessage("registration_message")}</h2>
         </div>
         <div class="col-md-12">
 			<ui:include src="registration.xhtml" />
