@@ -30,7 +30,7 @@
 	<style>
 	.parallax {
     	/* The image used */
-    	background-image: url("wide_city_2.jpg");
+    	background-image: url("img/wide_city_2.jpg");
 
 	    /* Set a specific height */
     	height: 100%;
@@ -47,15 +47,48 @@
 		max-width: 100%;
 		padding:0;
 	}
+
+	.hero-area-2 .btn-search-place 
+	{
+	  top: 6px;
+	  right: 22px;
+	  z-index: 2;
+	  width: 156px;
+	  font-weight: 600;
+	  background: #3c96ff;
+	  color: #fff;
+	  height: 52px;
+	  text-align: center;
+	  position: absolute;
+	  padding: 0px;
+	  margin: 0px;
+	}
+
+	.hero-area-2 .btn-signup-choice
+	{
 	
+	}
+
 	.search-place, .search-place:focus
 	{
 		padding-top:10px;
-		background-color:#ffffff4d;
+		background-color:#ffffffcd;
 		font-size:23px;
 		text-align:left;
-		color:#ffd39b;
+		color:#222222;
 	}
+	
+	@font-face
+	{
+		font-family: Seaside;
+		src: url(fonts/seaside.ttf);
+	}
+	@font-face
+	{
+		font-family: GothamLight;
+		src: url(fonts/Gotham_light.ttf);
+	}
+	
 	</style>
 	
   </h:head>
@@ -65,7 +98,7 @@
     <!-- Header Section Start -->
     <header id="home" class="hero-area-2">    
       <div class="overlay"></div>
-      <nav class="navbar navbar-expand-md bg-inverse fixed-top scrolling-navbar">
+      <nav id="menu_navbar" class="navbar navbar-expand-md bg-inverse fixed-top scrolling-navbar">
         <div class="container">
           <a href="index.html" class="navbar-brand"><img src="img/logo.png" alt="" /></a>  
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -105,25 +138,27 @@
         <div class="row space-100">
           <div class="col-lg-12 col-md-12 col-xs-12">
             <div class="contents parallax" style="text-align:center">
-              <h2 class="head-title" style="">Sua viagem dos sonhos começa agora</h2>
-              <div class="row">
-              	<div class="col-md-3" />
-              	<p class="col-md-6">Olá, somos Find My Destiny. Prestamos um serviço inteligente que te ajudará a viajar com qualidade, aproveitando ao máximo o que cada lugar de destino tem a oferecer. Conheça nosso serviço, junte-se a nós.</p>
-              </div>
-              <br /><br />
-              <h:form>
-              	<div class="row justify-content-center">
-              		<div class="col-lg-12 col-md-12 col-xs-12">		
-              			<div class="form-line form-group form-search">
-              				<input class="form-control search-place" type="email" name="search-bar" placeholder="#{findMyDestinyI18n.getI18nMessage('nav_find')}" /> 
-              				<button class="btn btn-common btn-search" type="submit" >#{findMyDestinyI18n.getI18nMessage("nav_find")}</button>
-              			</div>
-              		</div>
+				<div class="container" style="background-color:#22222244">
+              	<h2 class="head-title" style="padding-top:15px;font-family:GothamLight;color:#ffd39b">Sua viagem dos sonhos começa agora</h2>
+              	<div class="row justify-content-corner">
+              		<div class="col-md-2" />
+              		<p class="col-md-8">Olá, somos Find My Destiny. Prestamos um serviço inteligente que te ajudará a viajar com qualidade, aproveitando ao máximo o que cada destino tem a oferecer. Conheça nosso serviço.</p>
               	</div>
-              </h:form>
-              <div class="header-button" style="width=800px;margin:auto;">
-                <a href="#signup" class="btn btn-border">Começar</a>
-              </div>
+	              <br /><br />
+				  <div class="subscribe-form form-wrapper">
+	    	          <h:form>
+    	    	      	<div class="row">
+							  <div class="col-lg-2 col-md-1 form-line" />
+            		  		<div class="col-lg-8 col-md-10 col-sm-12 form-line" >
+              					<div class="form-group form-search" >
+              						<h:inputText class="form-control search-place" type="email" name="search-bar" placeholder="#{findMyDestinyI18n.getI18nMessage('search_bar_message')}" value="#{findMyDestinySearch.destinationQuery}" /> 
+              						<h:commandButton class="btn btn-common btn-search btn-search-place" type="submit" style="margin:0px" actionListener="#{findMyDestinySearch.searchDestination()}" value="#{findMyDestinyI18n.getI18nMessage('nav_find')}" />
+              					</div>
+        	      			</div>
+        	      		</div>
+        	      	</h:form>
+				  </div>
+			    </div>
             </div>
           </div>
         </div> 
@@ -135,22 +170,21 @@
     <div id="signup" class="section">
       <div class="container">
         <div class="section-header">   
-          <p class="btn btn-subtitle wow fadeInDown" data-wow-delay="0.2s">#{findMyDestinyI18n.getI18nMessage("nav_signup")}</p>
-          <h2 class="section-title wow fadeIn" data-wow-delay="0.2s">#{findMyDestinyI18n.getI18nMessage("registration_message")}</h2>
+          <p class="btn btn-subtitle wow fadeInDown" data-wow-delay="
+0.2s">#{findMyDestinyI18n.getI18nMessage("nav_signup")}</p>
+          <h2 class="section-title fadeIn" >#{findMyDestinyI18n.getI18nMessage("registration_message")}</h2>
 		</div>
-		<div class="row col-lg-12 col-md-12 col-sm-12" style="padding-bottom:10px">
-		  <div class="col-3" />
-		  <div class="col-2"><button id="form_private_person" class="btn btn-common btn-effect" value="Pessoa Física" ajax="true" onclick="SelectPersonForm('private_person')">Pessoa Física</button></div>
-		  <div class="col-2" />
-		  <div class="col-3"><button id="form_enterprise" class="btn btn-common btn-effect" value="Empresa" ajax="true" onclick="SelectPersonForm('enterprise')" >Empresa</button></div>
+		<div class="row col-lg-12 col-md-12 col-sm-12 justify-content-center" style="padding-bottom:10px;padding-right:10px;padding-left:10px">
+		  <button id="form_private_person" class="btn btn-border btn-signup-choice" value="Pessoa Física" onclick="SelectPersonForm('private_person')" style="padding-right:10px;padding-left:10px">Para você</button>
+		  <button id="form_enterprise" class="btn btn-border btn-signup-choice" value="Empresa" onclick="SelectPersonForm('enterprise')" >Para sua empresa</button>
         </div>
 		<br />
 		<h:form id="registration_form">
 			<h:panelGroup id="registration_panel">
-        		<div id="registration_private_person" class="col-md-12" hidden="true" >
+        		<div id="registration_private_person" class="col-12" hidden="true" >
 					<ui:include src="registration_private.xhtml" />
         		</div>
-        		<div id="registration_enterprise" class="col-md-12" hidden="true" >
+        		<div id="registration_enterprise" class="col-12" hidden="true" >
 					<ui:include src="registration_enterprise.xhtml" />
 				</div>
 			</h:panelGroup>

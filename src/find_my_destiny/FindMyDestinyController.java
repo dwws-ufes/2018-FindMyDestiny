@@ -1,6 +1,7 @@
 package find_my_destiny;
 
 import find_my_destiny.FindMyDestinyConnection;
+import find_my_destiny.FindMyDestinySearch;
 import find_my_destiny.FindMyDestinyI18n;
 
 import java.sql.Statement;
@@ -37,7 +38,7 @@ public class FindMyDestinyController {
 	public void setPassword(String password) {this.password= password;}
 	public void setTelephone(String telephone) {this.telephone= telephone;}
     public void setEmail(String email) {this.email= email;}
-	
+    
 	public FindMyDestinyConnection CreateConnection()
 	{
 		Connection = new FindMyDestinyConnection();
