@@ -36,17 +36,14 @@ public class FindMyDestinySearch
 	}
 	
 	// Search for destination. Do not return anything in case it can't find destination
-	public boolean searchDestination()
+	public void searchDestination()
 	{	
-		boolean searchStatus = false;
-		
 		try
 		{
 			JSONObject json = fetchJSONDataFromAPI(placeSearchAPIUrl + retrivalFormat+ "?key=" + myGoogleAPIKey + "&input=" + destinationQuery + "&inputtype=textquery");
 			
 			if (json != null && json.getString("status").equals("OK"))
 			{
-				searchStatus = true;
 				JSONArray destinationsArray = (JSONArray) json.get("candidates");
 				JSONObject destinationsObject = (JSONObject)destinationsArray.get(0);
 				placeId = destinationsObject.getString("place_id");
@@ -56,15 +53,9 @@ public class FindMyDestinySearch
 				if (json.getString("status").equals("OK"))
 				{
 					json = (JSONObject)json.get("result");
-					destinationsArray = (JSONArray)json.get("address_components");
-					JSONObject Locality = (JSONObject)destinationsArray.get(0);
-					String CityName = Locality.getString("long_name");
+					String CityName = json.getString("name");
 					System.out.println("Nome da cidade: "+CityName);
 				}
-			}
-			else
-			{
-				searchStatus = false;
 			}
 		}
 		catch(Exception e)
@@ -72,7 +63,6 @@ public class FindMyDestinySearch
 			e.printStackTrace();
 		}
 		
-		return searchStatus;
 	}
 	
 	private JSONObject fetchJSONDataFromAPI(String UrlToFetchFrom)

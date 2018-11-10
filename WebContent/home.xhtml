@@ -146,13 +146,13 @@
               	</div>
 	              <br /><br />
 				  <div class="subscribe-form form-wrapper">
-	    	          <h:form>
+	    	          <h:form action="app" method="get">
     	    	      	<div class="row">
 							  <div class="col-lg-2 col-md-1 form-line" />
             		  		<div class="col-lg-8 col-md-10 col-sm-12 form-line" >
               					<div class="form-group form-search" >
               						<h:inputText class="form-control search-place" type="email" name="search-bar" placeholder="#{findMyDestinyI18n.getI18nMessage('search_bar_message')}" value="#{findMyDestinySearch.destinationQuery}" /> 
-              						<h:commandButton class="btn btn-common btn-search btn-search-place" type="submit" style="margin:0px" actionListener="#{findMyDestinySearch.searchDestination()}" value="#{findMyDestinyI18n.getI18nMessage('nav_find')}" />
+              						<p:commandButton class="btn btn-common btn-search btn-search-place" type="submit" style="margin:0px" actionListener="#{findMyDestinySearch.searchDestination()}" value="#{findMyDestinyI18n.getI18nMessage('nav_find')}" />
               					</div>
         	      			</div>
         	      		</div>
