@@ -38,3 +38,19 @@ function SelectPersonForm(typeOfPerson)
 		}
 	}
 }
+
+function ListOfPlaces()
+{
+	var i;
+	var resultsCount = document.getElementById('results_count');
+	for(i = 0; i < resultsCount; i++)
+	{
+		var list = document.getElementById('places_list');
+		var entry = document.createElement('li');
+		entry.appendChild(document.createTextNode("Vix"));
+		list.appendChild(entry);
+		document.body.appendChild(list);
+	}
+	
+	console.log(list);	
+}

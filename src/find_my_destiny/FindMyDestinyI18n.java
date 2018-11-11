@@ -13,6 +13,8 @@ public class FindMyDestinyI18n {
 	private ResourceBundle resourceBundle;
 	private Locale locale;
 	
+	public FindMyDestinyI18n() {} 
+	
 	public String getI18nMessage(String message)
 	{
 		if (resourceBundle == null)

@@ -19,6 +19,8 @@ public class FindMyDestinyController {
 	private String password = null;
 	private String telephone = null;
 	
+    private String htmlListOfPlaces = "";
+    
 	private FindMyDestinyConnection Connection = null; 
 	
 	public String getVisitor() {return visitor;}

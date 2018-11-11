@@ -1,2 +1,0 @@
-API find places: https://maps.googleapis.com/maps/api/place/findplacefromtext/json?key=AIzaSyDvbyVqbMLuaj-GB2GUfQKdU1SapIp6Dao&input=%27Vit%C3%B3ria,%20ES%27&inputtype=textquery
-API place details: https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJ6U43hV09uAARCdgOp35eWZc&key=AIzaSyDvbyVqbMLuaj-GB2GUfQKdU1SapIp6Dao

@@ -145,19 +145,19 @@
               		<p class="col-md-8">Olá, somos Find My Destiny. Prestamos um serviço inteligente que te ajudará a viajar com qualidade, aproveitando ao máximo o que cada destino tem a oferecer. Conheça nosso serviço.</p>
               	</div>
 	              <br /><br />
-				  <div class="subscribe-form form-wrapper">
-	    	          <h:form action="app" method="get">
-    	    	      	<div class="row">
-							  <div class="col-lg-2 col-md-1 form-line" />
-            		  		<div class="col-lg-8 col-md-10 col-sm-12 form-line" >
+				  <div class="subscribe-form form-wrapper"> 
+    	    	    <div class="row">
+						<div class="col-lg-2 col-md-1 form-line" />
+            				<div class="col-lg-8 col-md-10 col-sm-12 form-line" >
               					<div class="form-group form-search" >
-              						<h:inputText class="form-control search-place" type="email" name="search-bar" placeholder="#{findMyDestinyI18n.getI18nMessage('search_bar_message')}" value="#{findMyDestinySearch.destinationQuery}" /> 
-              						<p:commandButton class="btn btn-common btn-search btn-search-place" type="submit" style="margin:0px" actionListener="#{findMyDestinySearch.searchDestination()}" value="#{findMyDestinyI18n.getI18nMessage('nav_find')}" />
-              					</div>
-        	      			</div>
+              						<h:form action="destination_search" method="get">	
+              							<h:inputText class="form-control search-place" type="email" name="search-bar" placeholder="#{findMyDestinyI18n.getI18nMessage('search_bar_message')}" value="#{findMyDestinySearch.destinationQuery}" /> 
+		              					<p:commandButton class="btn btn-common btn-search btn-search-place" action="destination_search" method="get" type="submit" style="margin:0px" actionListener="#{findMyDestinySearch.searchDestination()}" value="#{findMyDestinyI18n.getI18nMessage('nav_find')}" />
+        	      					</h:form>
+            	  				</div>
+        	    	  		</div>
         	      		</div>
-        	      	</h:form>
-				  </div>
+					</div>
 			    </div>
             </div>
           </div>

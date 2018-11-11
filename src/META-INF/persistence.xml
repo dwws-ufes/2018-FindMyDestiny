@@ -6,7 +6,7 @@
             <provider>org.hibernate.ejb.HibernatePersistence</provider>
   
             <!-- entidade mapeada -->
-            <class>find_my_destiny.Usuario</class>
+            <class>find_my_destiny.FindMyDestinyUser</class>
   
             <properties>
              
