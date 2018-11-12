@@ -4,6 +4,8 @@ import find_my_destiny.FindMyDestinyI18n;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -15,6 +17,7 @@ import org.json.JSONArray;
 @SuppressWarnings("deprecation")
 @ManagedBean
 @SessionScoped
+@Named
 public class GoogleNearbyApi
 {
     private String nextPageToken;
@@ -26,7 +29,7 @@ public class GoogleNearbyApi
     private String htmlListOfPlaces = null;
     private int placeIndex = 0;
     
-    public GoogleNearbyApi(JSONObject response)
+    public void buildApi(JSONObject response)
     {
         if (response.getString("status").equals("OK"))
         {
@@ -67,5 +70,10 @@ public class GoogleNearbyApi
     public int getResultsCount()
     {
         return resultsCount;
+    }
+    
+    public GoogleNearbyApi getApi()
+    {
+    	return new GoogleNearbyApi();
     }
 }

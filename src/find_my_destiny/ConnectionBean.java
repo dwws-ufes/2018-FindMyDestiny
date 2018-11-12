@@ -9,13 +9,14 @@ import javax.faces.bean.SessionScoped;
 @SuppressWarnings("deprecation")
 @ManagedBean
 @SessionScoped
-public final class FindMyDestinyConnection {
-	private static Connection Conn = null;
+public final class ConnectionBean {
+	private static Connection Conn;
+	
 	private static final String Database_ServerName = "jdbc:mysql://localhost:3306/find_my_destiny";
 	private static final String Database_User = "root";
 	private static final String Database_Password = "root";
 	
-	public FindMyDestinyConnection()
+	public ConnectionBean()
 	{
 		
 	}

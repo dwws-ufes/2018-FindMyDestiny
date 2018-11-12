@@ -1,9 +1,5 @@
 package find_my_destiny;
 
-import find_my_destiny.FindMyDestinyConnection;
-import find_my_destiny.FindMyDestinySearch;
-import find_my_destiny.FindMyDestinyI18n;
-
 import java.sql.Statement;
 import java.util.Date;
 import javax.enterprise.inject.Model;
@@ -21,7 +17,7 @@ public class FindMyDestinyController {
 	
     private String htmlListOfPlaces = "";
     
-	private FindMyDestinyConnection Connection = null; 
+	private ConnectionBean Connection = null; 
 	
 	public String getVisitor() {return visitor;}
 	public String getName() {return name;}
@@ -41,10 +37,15 @@ public class FindMyDestinyController {
 	public void setTelephone(String telephone) {this.telephone= telephone;}
     public void setEmail(String email) {this.email= email;}
     
-	public FindMyDestinyConnection CreateConnection()
+	public ConnectionBean CreateConnection()
 	{
-		Connection = new FindMyDestinyConnection();
+		Connection = new ConnectionBean();
 		return Connection;
+	}
+	
+	public void login()
+	{
+		
 	}
 	
 	public void registerNewUser()
@@ -70,7 +71,7 @@ public class FindMyDestinyController {
 	{
 		if (Connection == null)
 		{
-			Connection = new FindMyDestinyConnection();
+			Connection = new ConnectionBean();
 			System.out.println("Created new connection.");
 		}
 		Connection.OpenConnection();
@@ -78,7 +79,7 @@ public class FindMyDestinyController {
 	
 	public void CloseConnection()
 	{
-		if (FindMyDestinyConnection.close())
+		if (ConnectionBean.close())
 		{
 			System.out.println("Connection closed successfully.");
 		}

@@ -1,11 +1,10 @@
 package find_my_destiny;
 
-import find_my_destiny.GoogleApiWraper;
+import find_my_destiny.GooglePlacesSearchApi;
 import find_my_destiny.GoogleNearbyApi;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.net.URL;
 import java.net.URLEncoder;
 
@@ -15,13 +14,14 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-@SuppressWarnings("deprecation")
+@SuppressWarnings({"deprecation", "unused"})
 @ManagedBean
 @SessionScoped
 public class FindMyDestinySearch 
@@ -37,8 +37,11 @@ public class FindMyDestinySearch
 	private float longitude = 0.0f;
 	private String placeName = null;
     
-    private GoogleApiWraper apiWraper = null;
-    private GoogleNearbyApi nearbyApi = null;
+	@Inject
+    private GooglePlacesSearchApi apiWraper;
+    @Inject
+    private GoogleNearbyApi nearbyApi;
+    
     private int resultsCount = 0;
     
     private String htmlListOfPlaces = null;
@@ -96,7 +99,7 @@ public class FindMyDestinySearch
 				
 				json = fetchJSONDataFromAPI(placeDetailsAPIUrl + retrivalFormat+ "?placeid=" + placeId + "&key="+myGoogleAPIKey);
                 
-                apiWraper = new GoogleApiWraper(json);
+                apiWraper.buildApi(json);
                 System.out.println(apiWraper.toString());
                 
                 String urlBuild = nearbyApiUrl+retrivalFormat+
@@ -106,7 +109,8 @@ public class FindMyDestinySearch
                     "&rankedby=prominence"+
                     "&type=park|museum|movie_theater|casino|city_hall|shopping_mall|night_club|stadium|amusement_park|aquarium";
                 json = fetchJSONDataFromAPI(urlBuild);
-                nearbyApi = new GoogleNearbyApi(json);
+                nearbyApi.buildApi(json);
+                
                 System.out.println(nearbyApi.getResultsCount());
                 
                 HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
@@ -122,9 +126,11 @@ public class FindMyDestinySearch
 		
 	}
 	
-    public void refreshMap()
+    public String refreshMap()
     {
         System.out.println("refreshing map");
+        
+        return "OK";
     }
     
 	private JSONObject fetchJSONDataFromAPI(String UrlToFetchFrom)
@@ -134,7 +140,6 @@ public class FindMyDestinySearch
 		try
 		{
 			URL url = new URL(UrlToFetchFrom);
-			System.out.println("url: "+ url.toString());
 			BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
 			for (String line; (line = reader.readLine()) != null;) 
 			{
@@ -150,7 +155,7 @@ public class FindMyDestinySearch
 		return new JSONObject(stringBuilder.toString()); 
 	}
     
-    private GoogleApiWraper getApiWraper()
+    private GooglePlacesSearchApi getApiWraper()
     {
         return apiWraper;
     }

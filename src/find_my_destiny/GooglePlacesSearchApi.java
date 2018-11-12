@@ -8,13 +8,15 @@ import org.json.JSONArray;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.inject.Named;
 
 // Wraper for Google places API. This extracts its JSON contents as being an Java Object
 @SuppressWarnings({"deprecation", "unused"})
 @ManagedBean
 @SessionScoped
-public class GoogleApiWraper {
-	private List<JSONObject> addressComponents;
+@Named
+public class GooglePlacesSearchApi {
+	private ArrayList<JSONObject> addressComponents;
 	
     private JSONObject geometry;
     private JSONObject location;
@@ -47,7 +49,7 @@ public class GoogleApiWraper {
 	private float latitude = 0.0f;
 	private float longitude = 0.0f;
 	
-    public GoogleApiWraper(JSONObject response)
+    public void buildApi(JSONObject response)
     {
         if (response.getString("status").equals("OK"))
         {
