@@ -3,6 +3,7 @@ package find_my_destiny;
 import java.sql.Statement;
 import java.util.Date;
 import javax.enterprise.inject.Model;
+import javax.inject.Inject;
 
 @Model
 public class FindMyDestinyController {
@@ -17,7 +18,8 @@ public class FindMyDestinyController {
 	
     private String htmlListOfPlaces = "";
     
-	private ConnectionBean Connection = null; 
+    @Inject
+	private ConnectionBean Connection; 
 	
 	public String getVisitor() {return visitor;}
 	public String getName() {return name;}
@@ -48,9 +50,9 @@ public class FindMyDestinyController {
 		
 	}
 	
-	public void registerNewUser()
+	public void createUser()
 	{
-		OpenConnection();
+		Connection.OpenConnection();
 		
 		try
 		{
@@ -67,14 +69,18 @@ public class FindMyDestinyController {
 		CloseConnection();
 	}
 	
-	public void OpenConnection()
+	public void updateUser()
 	{
-		if (Connection == null)
-		{
-			Connection = new ConnectionBean();
-			System.out.println("Created new connection.");
-		}
-		Connection.OpenConnection();
+	}
+	
+	public void readUser()
+	{
+		
+	}
+	
+	public void deleteUser()
+	{
+		
 	}
 	
 	public void CloseConnection()
@@ -85,7 +91,7 @@ public class FindMyDestinyController {
 		}
 		else
 		{
-			System.out.println("Attempt to close connection, but connection does not exists.");
+			System.out.println("Attempt to close connection failed.");
 		}
 	}
 	

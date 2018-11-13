@@ -100,7 +100,11 @@
     	<artifactId>aristo</artifactId>
     	<version>1.0.1</version>
 	</dependency>
-	
+    <dependency>
+    	<groupId>br.ufes.inf.nemo</groupId>
+    	<artifactId>jbutler-wp</artifactId>
+    	<version>1.2.7</version>
+    </dependency>
   </dependencies>
   <repositories>
     <repository>
@@ -109,5 +113,16 @@
         <url>http://repository.primefaces.org</url>
         <layout>default</layout>
     </repository>
+        <repository>
+		<releases>
+			<enabled>true</enabled>
+			<updatePolicy>always</updatePolicy>
+			<checksumPolicy>fail</checksumPolicy>
+		</releases>
+		<id>br.ufes.inf.nemo</id>
+		<name>Nemo Maven Repository</name>
+		<url>http://dev.nemo.inf.ufes.br/maven2</url>
+		<layout>default</layout>
+	</repository>
 </repositories>
 </project>
