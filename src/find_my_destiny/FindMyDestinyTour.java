@@ -2,6 +2,7 @@ package find_my_destiny;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,7 +12,7 @@ public class FindMyDestinyTour {
 	@Column(name="USER_ID", nullable=false, unique=false)
 	private String userId;
 	
-	@Id
+	@Id @GeneratedValue
 	@Column(name="TOUR_ID", nullable=false, unique=true)
 	private String tourId;
 	

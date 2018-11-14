@@ -4,6 +4,8 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<jta-data-source>java:jboss/datasources/FindMyDestinyDB</jta-data-source>
 		<class>br.ufes.inf.nemo.jbutler.ejb.persistence.PersistentObjectSupport</class>
+		<class>find_my_destiny.FindMyDestinyTour</class>
+		<class>find_my_destiny.FindMyDestinyUser</class>
 		<properties>
 		    <property name="hibernate.hbm2ddl.auto" value="update" />
 		</properties>

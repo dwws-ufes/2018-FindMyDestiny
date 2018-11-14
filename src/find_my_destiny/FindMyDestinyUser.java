@@ -5,13 +5,19 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.PersistenceUnit;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.GeneratedValue;
+
+import br.ufes.inf.nemo.jbutler.ejb.persistence.PersistentObjectSupport;
   
 @Entity
-public class FindMyDestinyUser {
-       
-      @Id
+@PersistenceUnit(unitName="FindMyDestiny")
+public class FindMyDestinyUser extends PersistentObjectSupport {
+	private static final long serialVersionUID = 1L;
+	
+	  @GeneratedValue
       @Column(name="id", nullable=false, unique=true)
       private int id;
       

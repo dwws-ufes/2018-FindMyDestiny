@@ -22,6 +22,11 @@ public class GooglePlaceDefinition
     private int rating;
     private String vicinity;
     
+    public GooglePlaceDefinition()
+    {
+    	
+    }
+    
     public GooglePlaceDefinition(JSONObject jsonPlace)
     {
         geometry = jsonPlace.getJSONObject("geometry");

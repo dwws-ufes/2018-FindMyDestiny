@@ -47,12 +47,16 @@ public class FindMyDestinyController {
 	
 	public void login()
 	{
+		Connection.open();	
 		
+		// TODO: login code here (maybe JAAS?)
+		
+		Connection.close();
 	}
 	
 	public void createUser()
 	{
-		Connection.OpenConnection();
+		Connection.open();
 		
 		try
 		{
@@ -66,33 +70,34 @@ public class FindMyDestinyController {
 			e.printStackTrace();
 		}
 		
-		CloseConnection();
+		Connection.close();
 	}
 	
 	public void updateUser()
 	{
+		Connection.open();
+		
+		// TODO: user update information code here!
+		
+		Connection.close();
 	}
 	
 	public void readUser()
 	{
+		Connection.open();
 		
+		// TODO: user read information code here!
+		
+		Connection.close();
 	}
 	
 	public void deleteUser()
 	{
+		Connection.open();
 		
-	}
-	
-	public void CloseConnection()
-	{
-		if (ConnectionBean.close())
-		{
-			System.out.println("Connection closed successfully.");
-		}
-		else
-		{
-			System.out.println("Attempt to close connection failed.");
-		}
+		// TODO: user deletion code here!
+		
+		Connection.close();
 	}
 	
 	public Date getTime() {return new Date();}

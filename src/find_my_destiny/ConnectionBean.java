@@ -16,12 +16,7 @@ public final class ConnectionBean {
 	private static final String Database_User = "root";
 	private static final String Database_Password = "root";
 	
-	public ConnectionBean()
-	{
-		
-	}
-	
-	public boolean OpenConnection()
+	public boolean open()
 	{
 		try
 		{	
@@ -39,7 +34,7 @@ public final class ConnectionBean {
 		return true;
 	}
 	
-	public static boolean close()
+	public boolean close()
 	{
 		try
 		{
@@ -49,6 +44,7 @@ public final class ConnectionBean {
 		{
 			return false; 
 		}
+		System.out.println("Connection closed successfully");
 		return true;
 	}
 	

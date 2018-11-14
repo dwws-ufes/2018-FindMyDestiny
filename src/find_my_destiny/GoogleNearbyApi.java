@@ -4,7 +4,6 @@ import find_my_destiny.FindMyDestinyI18n;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.inject.Inject;
 import javax.inject.Named;
 
 import java.util.List;

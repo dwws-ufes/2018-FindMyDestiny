@@ -5,6 +5,8 @@ function SelectPersonForm(typeOfPerson)
 
 	if (typeOfPerson == 'private_person')
 	{
+		var registrationPanel = document.getElementById("registration_panel");
+		
 		privatePersonArea.hidden = false;
 		var privatePersonButton = document.getElementById('form_private_person');	
 		privatePersonButton.classList.add("btn-common"); 
