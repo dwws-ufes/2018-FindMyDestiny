@@ -3,19 +3,23 @@ package find_my_destiny;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
+import java.sql.ResultSet;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
 
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+
 @SuppressWarnings("deprecation")
 @ManagedBean
 @SessionScoped
 public final class ConnectionBean {
-	private static Connection Conn;
-	
+	private Connection Conn;
+
 	@Inject
-	private FindMyDestinyController user;
+        private User user;
 	
 	private static final String Database_ServerName = "jdbc:mysql://localhost:3306/find_my_destiny";
 	private static final String Database_User = "root";
@@ -27,7 +31,7 @@ public final class ConnectionBean {
 		{	
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Conn = DriverManager.getConnection(Database_ServerName+
-					"?user="+Database_User+"&password="+Database_Password+"&useTimezone=true&serverTimezone=UTC");
+                                               "?user="+Database_User+"&password="+Database_Password+"&useTimezone=true&serverTimezone=UTC");
 		}
 		catch(Exception e)
 		{
@@ -75,9 +79,78 @@ public final class ConnectionBean {
 		}
 	}
 	
+    public void loginUser()
+    {
+        try
+        {
+            java.sql.Connection Conn = this.getConnection();
+			Statement statement = Conn.createStatement();
+            
+            String username = user.getUsername();
+            String password = user.getPassword();
+            
+            String sql = "SELECT username, id from user where username like '"+
+                username+"' and password like '"+password+"'";
+            
+            ResultSet resultSet = statement.executeQuery(sql);
+            
+            while(resultSet.next())
+            {
+            	//user.setLoginAuthorized(true);
+            	user.setId(resultSet.getInt("id"));
+            	System.out.println(">>> "+user.getId());
+            	user.setUsername(resultSet.getString("username"));
+            	ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+            	externalContext.redirect("hub.xhtml");
+            }
+        }
+        
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+    
 	public void PrintConnection()
 	{
 		System.out.println("Connection info:");
+	}
+	
+	public void signOut()
+	{
+		// TODO: sign out code, like clear logged flag and session indicators of login
+		
+		try
+		{
+			ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+			externalContext.redirect("home.xhtml");
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	public void createPackage()
+	{
+		this.open();
+		try
+		{
+			java.sql.Connection Conn = this.getConnection();
+			Statement statement = Conn.createStatement();
+			
+			System.out.println("ActiveUserid = " + user.getId());
+			String packageName = user.getPackageName();
+			String SQL = "INSERT INTO tourism_package (package_name, user_id) VALUES('"+packageName+"', "+user.getId()+")";
+			statement.executeUpdate(SQL);
+		}
+		
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		this.close();
 	}
 	
 	public Connection getConnection() {return Conn;}

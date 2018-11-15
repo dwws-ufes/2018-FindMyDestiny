@@ -5,99 +5,13 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:p="http://primefaces.org/ui">
-  <h:head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="keywords" content="Bootstrap, Landing page, Template, Registration, Landing" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="author" content="Grayrids" />
-    <title>FindMyDestiny</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/line-icons.css" />
-    <link rel="stylesheet" href="css/owl.carousel.css" />
-    <link rel="stylesheet" href="css/owl.theme.css" />
-    <link rel="stylesheet" href="css/animate.css" />
-    <link rel="stylesheet" href="css/magnific-popup.css" />
-    <link rel="stylesheet" href="css/nivo-lightbox.css" />
-    <link rel="stylesheet" href="css/main.css" />    
-    <link rel="stylesheet" href="css/responsive.css" />
-
-	<script src='js/find_my_destiny.js'></script>
-    
-	<style>
-	.parallax {
-    	/* The image used */
-    	background-image: url("img/wide_city_2.jpg");
-
-	    /* Set a specific height */
-    	height: 100%;
-
-    	/* Create the parallax scrolling effect */
-    	background-attachment: fixed;
-    	background-position: center;
-    	background-repeat: no-repeat;
-    	background-size: cover;
-	}
-	
-	#presentation.container
-	{
-		max-width: 100%;
-		padding:0;
-	}
-
-	.hero-area-2 .btn-search-place 
-	{
-	  top: 6px;
-	  right: 22px;
-	  z-index: 2;
-	  width: 156px;
-	  font-weight: 600;
-	  background: #3c96ff;
-	  color: #fff;
-	  height: 52px;
-	  text-align: center;
-	  position: absolute;
-	  padding: 0px;
-	  margin: 0px;
-	}
-
-	.hero-area-2 .btn-signup-choice
-	{
-	
-	}
-
-	.search-place, .search-place:focus
-	{
-		padding-top:10px;
-		background-color:#ffffffcd;
-		font-size:23px;
-		text-align:left;
-		color:#222222;
-	}
-	
-	@font-face
-	{
-		font-family: Seaside;
-		src: url(fonts/seaside.ttf);
-	}
-	@font-face
-	{
-		font-family: GothamLight;
-		src: url(fonts/Gotham_light.ttf);
-	}
-	
-	</style>
-	
-  </h:head>
+	<ui:include src="header.xhtml" />
   
-  <h:body>
-
-    <!-- Header Section Start -->
-    <header id="home" class="hero-area-2">    
-      <div class="overlay" style="background-image:none;" ></div>
+	<h:body>
+    	<!-- Header Section Start -->
+    	<header id="home" class="hero-area-2">    
+		<div class="overlay" style="background-image:none;" ></div>
       <nav id="menu_navbar" class="navbar navbar-expand-md bg-inverse fixed-top scrolling-navbar menu-bg">
         <div class="container">
           <a href="home.xhtml" class="navbar-brand"><img src="img/logo.png" alt="" /></a>  
@@ -144,12 +58,12 @@
 				<h:panelGroup id="registration_panel">
 					<div class="row">
 						<div class="col-md-5 col-sm-4" style="text-align:right;font-size:12px;color:#b0b0b0">Nome Usuário</div>
-    					<div class="col-md-7 col-sm-8"><p:inputText name="name" value="#{findMyDestinyController.name}" required="true" style="width:35%" /><br /></div>
+    					<div class="col-md-7 col-sm-8"><p:inputText name="name" value="#{findMyDestinyController.user.username}" required="true" style="width:35%" /><br /></div>
 					</div>
 					<br />
 					<div class="row">
 						<div class="col-md-5 col-sm-4" style="text-align:right;font-size:12px;color:#b0b0b0">Senha</div>
-    					<div class="col-md-7 col-sm-8"><p:password name="name" value="#{findMyDestinyController.name}" required="true" style="width:35%" /><br /></div>
+    					<div class="col-md-7 col-sm-8"><p:password name="name" value="#{findMyDestinyController.user.password}" required="true" style="width:35%" /><br /></div>
 					</div>
 					<div class="submit-button" align="center" style="padding-top:20px">
 						<p:commandButton id="submit_enterprise" styleClass="btn btn-common btn-effect" value="#{findMyDestinyI18n.getI18nMessage('login')}" ajax="true" actionListener="#{findMyDestinyController.login()}" />

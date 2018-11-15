@@ -2,9 +2,11 @@ package find_my_destiny;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.inject.Singleton;
 
 @ManagedBean
 @SessionScoped
+@Singleton
 public class User {
 	
 	private String name;
@@ -14,6 +16,11 @@ public class User {
 	private String address;
 	private String telephone;
 	private String password;
+	
+	private String packageName;
+	private boolean loginAuthorized;
+	
+	private int id;
 	
     public String getName(){return name;}
     public void setName(String name){this.name = name;}
@@ -29,4 +36,15 @@ public class User {
     public void setPassword(String password){this.password = password;}
     public String getEmail(){return email;}
     public void setEmail(String email){this.email = email;}
+    
+    public int getId() {return id;}
+    public void setId(int id) {this.id = id;}
+    
+	public String getPackageName() {return packageName;}
+	public void setPackageName(String packageName) {this.packageName = packageName;}
+	
+	public void setLoginAuthorized(boolean loginAuthorized)
+	{
+		this.loginAuthorized = loginAuthorized;
+	}
 }
