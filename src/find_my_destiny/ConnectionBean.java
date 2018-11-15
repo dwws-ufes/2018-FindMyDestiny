@@ -2,15 +2,20 @@ package find_my_destiny;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.Statement;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.inject.Inject;
 
 @SuppressWarnings("deprecation")
 @ManagedBean
 @SessionScoped
 public final class ConnectionBean {
 	private static Connection Conn;
+	
+	@Inject
+	private FindMyDestinyController user;
 	
 	private static final String Database_ServerName = "jdbc:mysql://localhost:3306/find_my_destiny";
 	private static final String Database_User = "root";
@@ -46,6 +51,28 @@ public final class ConnectionBean {
 		}
 		System.out.println("Connection closed successfully");
 		return true;
+	}
+	
+	public void insertUserIntoDatabase()
+	{
+		try
+		{
+			java.sql.Connection Conn = this.getConnection();
+			Statement statement = Conn.createStatement();
+            
+			String name = user.getName();
+			String username = user.getUsername();
+			String cpf = user.getCpf();
+			String address = user.getAddress();
+			String password = user.getPassword();
+			String telephone = user.getTelephone();
+			String email = user.getEmail();
+			statement.executeUpdate("INSERT INTO user (fullName, email, username, cpf, address, telephone, password) VALUES('"+name+"','"+email+"','"+username+"', '"+cpf+"','"+address+"','"+telephone+"','"+password+"');");
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 	}
 	
 	public void PrintConnection()
