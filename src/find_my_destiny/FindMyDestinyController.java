@@ -2,6 +2,8 @@ package find_my_destiny;
 
 import java.util.Date;
 import javax.enterprise.inject.Model;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 @Model
@@ -10,6 +12,10 @@ public class FindMyDestinyController {
         private ConnectionBean Connection;
     @Inject
         private User user;
+    @Inject
+    private Package tourPackage;
+    @Inject
+    private Login login;
     
     public User getUser() {return user;}
     	
@@ -68,18 +74,33 @@ public class FindMyDestinyController {
 	public void newPackage()
 	{
 		Connection.createPackage();
+		updatePackagesList();
 	}
 	
-	private String packageName;
-	private boolean loginAuthorized;
-	
-	public String getPackageName() {return packageName;}
-	public void setPackageName(String packageName) {this.packageName = packageName;}
-	
-	public void setLoginAuthorized(boolean loginAuthorized)
+	public void updatePackagesList()
 	{
-		this.loginAuthorized = loginAuthorized;
+		Connection.searchPackages();
 	}
+	
+	public void init(String page)
+	{
+		String viewId = FacesContext.getCurrentInstance().getExternalContext().getRequestServletPath(); 
+		if(!login.getLoginStatus() && viewId.equals("/hub.xhtml"))
+		{
+			try
+			{
+				ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+				externalContext.redirect("home.xhtml");
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public Package getTourPackage() {return tourPackage;}
+	public void setTourPackage(Package tourPackage) {this.tourPackage= tourPackage;}
 	
 	public Date getTime() {return new Date();}
 }

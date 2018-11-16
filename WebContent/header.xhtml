@@ -88,6 +88,12 @@
 			src: url(fonts/Gotham_light.ttf);
 		}
 	
+	
+		
 		</style>
+		<f:metadata>
+	    	<f:viewParam name="foo" value="#{View.viewId}" />
+    		<f:event type="preRenderView" listener="#{findMyDestinyController.init}" />
+		</f:metadata>
   	</h:head>
 </html>

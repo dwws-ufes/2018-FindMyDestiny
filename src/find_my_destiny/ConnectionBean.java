@@ -20,6 +20,10 @@ public final class ConnectionBean {
 
 	@Inject
         private User user;
+	@Inject
+	private Package tourPackage;
+	@Inject
+	private Login login;
 	
 	private static final String Database_ServerName = "jdbc:mysql://localhost:3306/find_my_destiny";
 	private static final String Database_User = "root";
@@ -96,9 +100,8 @@ public final class ConnectionBean {
             
             while(resultSet.next())
             {
-            	//user.setLoginAuthorized(true);
+            	login.setLoginStatus(true);
             	user.setId(resultSet.getInt("id"));
-            	System.out.println(">>> "+user.getId());
             	user.setUsername(resultSet.getString("username"));
             	ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
             	externalContext.redirect("hub.xhtml");
@@ -122,6 +125,7 @@ public final class ConnectionBean {
 		
 		try
 		{
+			login.setLoginStatus(false);
 			ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 			externalContext.redirect("home.xhtml");
 		}
@@ -139,8 +143,7 @@ public final class ConnectionBean {
 			java.sql.Connection Conn = this.getConnection();
 			Statement statement = Conn.createStatement();
 			
-			System.out.println("ActiveUserid = " + user.getId());
-			String packageName = user.getPackageName();
+			String packageName = tourPackage.getName();
 			String SQL = "INSERT INTO tourism_package (package_name, user_id) VALUES('"+packageName+"', "+user.getId()+")";
 			statement.executeUpdate(SQL);
 		}
@@ -150,6 +153,30 @@ public final class ConnectionBean {
 			e.printStackTrace();
 		}
 		
+		this.close();
+	}
+	
+	public void searchPackages()
+	{
+		this.open();
+		try
+		{
+			java.sql.Connection Conn = this.getConnection();
+			Statement statement = Conn.createStatement();
+			String sql = "SELECT package_name from tourism_package where user_id = "+login.getUser().getId();
+			ResultSet resultSet = statement.executeQuery(sql);
+			String packagesFromUserHtml = ""; 
+			
+			while(resultSet.next())
+			{
+				packagesFromUserHtml += "<li>"+resultSet.getString("package_name")+"</li>";
+			}
+			System.out.println(packagesFromUserHtml);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 		this.close();
 	}
 	

@@ -4,6 +4,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Singleton;
 
+@SuppressWarnings("deprecation")
 @ManagedBean
 @SessionScoped
 @Singleton
@@ -15,10 +16,8 @@ public class User {
 	private String cpf;
 	private String address;
 	private String telephone;
+	private String cellphone;
 	private String password;
-	
-	private String packageName;
-	private boolean loginAuthorized;
 	
 	private int id;
 	
@@ -36,15 +35,9 @@ public class User {
     public void setPassword(String password){this.password = password;}
     public String getEmail(){return email;}
     public void setEmail(String email){this.email = email;}
-    
     public int getId() {return id;}
     public void setId(int id) {this.id = id;}
-    
-	public String getPackageName() {return packageName;}
-	public void setPackageName(String packageName) {this.packageName = packageName;}
-	
-	public void setLoginAuthorized(boolean loginAuthorized)
-	{
-		this.loginAuthorized = loginAuthorized;
-	}
+    public String getCellphone() {return cellphone;}
+    public void setCellphone(String cellphone) {this.cellphone = cellphone;}
+
 }

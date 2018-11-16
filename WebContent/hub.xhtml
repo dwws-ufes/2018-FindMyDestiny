@@ -6,6 +6,7 @@
     xmlns:p="http://primefaces.org/ui">
     
 	<ui:include src="header.xhtml" />
+	
 	<h:body>
 	<!-- Header Section Start -->
     <header id="home" class="hero-area-2">    
@@ -33,7 +34,7 @@
                 <a class="nav-link page-scroll" href="hub.xhtml">#{findMyDestinyController.user.username}</a>
               </li> 
               <li class="nav-item">
-                <p:commandLink class="nav-link page-scroll" action="#{findMyDestinyController.signOut()}" href="home.xhtml"><i class="fas fa-sign-out"></i>#{findMyDestinyI18n.getI18nMessage("nav_leave")}</p:commandLink>
+                <p:commandLink class="nav-link page-scroll" action="#{findMyDestinyController.signOut()}" ><i class="fas fa-sign-out"></i>#{findMyDestinyI18n.getI18nMessage("nav_leave")}</p:commandLink>
               </li> 
             </ul>
           </div>
@@ -47,7 +48,7 @@
           			<h2 class="section-title fadeIn" >#{findMyDestinyI18n.getI18nMessage("login")}</h2>
 				</div>
 				
-				<div>
+				<div id="tours">
 					<h1>Meus roteiros</h1>
 					<ul class="search-list">
 						<li>Roteiro 1</li>
@@ -55,8 +56,9 @@
 					</ul>
 				</div>
 				<div class="new_package">
+					<h3>Novo Pacote</h3>
 					<h:form>
-						<p:inputText name="package_name" value="a" required="true"></p:inputText>
+						<p:inputText name="package_name" value="#{findMyDestinyController.tourPackage.name}" required="true"></p:inputText>
 						<p:commandButton type="submit" value="Add" actionListener="#{findMyDestinyController.newPackage()}" ><i class='fas fa-plus-square fa-2x'></i></p:commandButton>
 					</h:form>
 				</div>
