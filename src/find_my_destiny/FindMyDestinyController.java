@@ -97,6 +97,11 @@ public class FindMyDestinyController {
 				e.printStackTrace();
 			}
 		}
+		
+		if (viewId.equals("/hub.xhtml"))
+		{
+			updatePackagesList();
+		}
 	}
 	
 	public Package getTourPackage() {return tourPackage;}

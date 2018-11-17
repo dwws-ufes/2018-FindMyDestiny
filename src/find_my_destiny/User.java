@@ -3,6 +3,7 @@ package find_my_destiny;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Singleton;
+import javax.validation.constraints.Pattern;
 
 @SuppressWarnings("deprecation")
 @ManagedBean
@@ -13,6 +14,7 @@ public class User {
 	private String name;
 	private String username;
 	private String email;
+	@Pattern(regexp="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}", message="Formato de cpf não reconhecido")
 	private String cpf;
 	private String address;
 	private String telephone;

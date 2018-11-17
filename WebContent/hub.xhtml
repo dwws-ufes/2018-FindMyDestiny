@@ -5,11 +5,21 @@
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:p="http://primefaces.org/ui">
     
-	<ui:include src="header.xhtml" />
+    <h:head>
+		<ui:include src="header.xhtml" />
+		
+		<script>
+			function deletePackage(packageId)
+			{
+				var packageForm = document.getElementById("form_"+packageId);
+				console.log(packageForm);
+			}
+		</script>
+	</h:head>
 	
 	<h:body>
 	<!-- Header Section Start -->
-    <header id="home" class="hero-area-2">    
+    <header id="home">    
       <nav id="menu_navbar" class="navbar navbar-expand-md bg-inverse fixed-top scrolling-navbar menu-bg">
         <div class="container">
           <a href="home.xhtml" class="navbar-brand"><img src="img/logo.png" alt="" /></a>  
@@ -19,22 +29,16 @@
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto w-100 justify-content-end">
               <li class="nav-item">
-                <a class="nav-link page-scroll" href="home.xhtml">#{findMyDestinyI18n.getI18nMessage("nav_home")}</a>
-              </li>
-              <li class='nav-item'>
-              	<a class="nav-link page-scroll" href="home.xhtml#signup">#{findMyDestinyI18n.getI18nMessage("nav_signup")}</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link page-scroll" href="#app-features">#{findMyDestinyI18n.getI18nMessage("nav_features")}</a>
-              </li>  
-              <li class="nav-item">
                 <a class="nav-link page-scroll" href="#screenshots">#{findMyDestinyI18n.getI18nMessage("nav_find")}</a>
               </li>                            
               <li class="nav-item">
-                <a class="nav-link page-scroll" href="hub.xhtml">#{findMyDestinyController.user.username}</a>
+                <a class="nav-link page-scroll" href="hub.xhtml">Bem vindo, #{findMyDestinyController.user.username}</a>
               </li> 
               <li class="nav-item">
-                <p:commandLink class="nav-link page-scroll" action="#{findMyDestinyController.signOut()}" ><i class="fas fa-sign-out"></i>#{findMyDestinyI18n.getI18nMessage("nav_leave")}</p:commandLink>
+                <p:commandLink class="nav-link page-scroll" action="#{findMyDestinyController.signOut}" >
+                	<i class="pi pi-sign-out"></i>
+                	#{findMyDestinyI18n.getI18nMessage("nav_leave")}
+                </p:commandLink>
               </li> 
             </ul>
           </div>
@@ -45,22 +49,29 @@
 		<div id="signup" class="section">
     		<div class="container">
         		<div class="section-header">   
-          			<h2 class="section-title fadeIn" >#{findMyDestinyI18n.getI18nMessage("login")}</h2>
+          			<h2 class="section-title fadeIn" >#{findMyDestinyI18n.getI18nMessage("my_hub")}</h2>
 				</div>
 				
-				<div id="tours">
-					<h1>Meus roteiros</h1>
-					<ul class="search-list">
-						<li>Roteiro 1</li>
-						<li>Roteiro 2</li>
-					</ul>
-				</div>
 				<div class="new_package">
 					<h3>Novo Pacote</h3>
-					<h:form>
-						<p:inputText name="package_name" value="#{findMyDestinyController.tourPackage.name}" required="true"></p:inputText>
-						<p:commandButton type="submit" value="Add" actionListener="#{findMyDestinyController.newPackage()}" ><i class='fas fa-plus-square fa-2x'></i></p:commandButton>
+					<h:form id="new-package-form">
+						<p:inputText style="width:50%;margin-right:10px" title="Nome do pacote" name="package_name" value="#{findMyDestinyController.tourPackage.name}" required="true"></p:inputText>
+						<p:commandButton type="submit" resetValues="true" icon="fa fa-plus" value="Add" update="tours" action="#{findMyDestinyController.newPackage}" >
+							<f:ajax render="tours" />
+						</p:commandButton>
 					</h:form>
+				</div>
+				<br />
+				<h3>Meus roteiros(não enviados)</h3>
+				<div class='search-results'>
+					<h:panelGroup id="tours">
+					</h:panelGroup>
+				</div>
+				<br />
+				<h3>Meus roteiros(enviados)</h3>
+				<div class='search-result'>
+					<h:panelGroup id='submitted-tours'>
+					</h:panelGroup>
 				</div>
       		</div>
     	</div>
