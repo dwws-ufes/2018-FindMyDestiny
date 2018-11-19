@@ -1,9 +1,0 @@
-G: Cadastro de usuário
-Tela do usuário
-Cadastro de empresa
-Tela da empresa
-Roteiro de viagens
-Tela de notificação para empresa quando um novo roteiro é adicionado
-Pesquisa de lugares
-Integração com google maps
-Persistência de dados

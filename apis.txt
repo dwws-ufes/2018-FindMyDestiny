@@ -1,4 +1,0 @@
-API find places: https://maps.googleapis.com/maps/api/place/findplacefromtext/json?key=AIzaSyDvbyVqbMLuaj-GB2GUfQKdU1SapIp6Dao&input=%27Vit%C3%B3ria,%20ES%27&inputtype=textquery
-API place details: https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJ6U43hV09uAARCdgOp35eWZc&key=AIzaSyDvbyVqbMLuaj-GB2GUfQKdU1SapIp6Dao
-APi Sygic travel: https://api.sygictravelapi.com/1.1/
-API nearby search https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyDvbyVqbMLuaj-GB2GUfQKdU1SapIp6Dao&location=-23.55052,-46.63331&radius=10000&rankedby=distance
