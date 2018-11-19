@@ -10,3 +10,5 @@ build
 misc
 to_do.txt
 apis.txt
+.classpath
+.project
