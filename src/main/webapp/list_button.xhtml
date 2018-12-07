@@ -1,0 +1,26 @@
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+    
+    
+	<div id="plus-sign" class='add_to_list' align='right'> 
+		#{findMyDestinyI18n.getI18nMessage('add_to_list')}
+		<h:form id="dropdown" class="dropdownform" method='post' >
+    		<!-- <p:commandButton class='btn button_add_to_list' value="" type='submit' onclick='AddPlaceToList()' actionListener='#{findMyDestinySearch.refreshMap()}' >
+    			<i class='fas fa-plus-square fa-2x'></i>
+    		</p:commandButton> -->
+    		<div id="dropdownabc" class="dropdownabc" style="display:inline-block;float:right"><p:selectOneMenu class="testeee" id="tourpkgSelect" required="false" value="#{findMyDestinySearch.tourpkg}" style="width:150px">
+<!--                 						<p:ajax listener="#{dropdownView.onCountryChange}" update="city" /> -->
+<!-- 			<f:selectItem itemLabel="Select PKG" itemValue="" noSelectionOption="true"  /> -->
+			<f:selectItems  value="#{findMyDestinySearch.tourpkg}" />
+			</p:selectOneMenu></div>
+			<div id="buttonabc" class="buttonabc" style="display:inline-block;float:right"><p:commandButton  type='submit' onclick='AddPlaceToList()' icon="fa fa-plus" actionListener='#{findMyDestinySearch.setPlace2Pkg}' >
+		</p:commandButton></div>
+		<br /><br />
+    	</h:form>
+	</div>
+	
+</html>

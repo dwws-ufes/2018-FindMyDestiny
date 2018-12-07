@@ -1,0 +1,154 @@
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+    
+    <h:head>
+		<ui:include src="header.xhtml" />
+		<script type="text/javascript">    
+    PrimeFaces.locales['de'] = {
+        closeText: 'Schließen',
+        prevText: 'Zurück',
+        nextText: 'Weiter',
+        monthNames: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+        monthNamesShort: ['Jan', 'Feb', 'März', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+        dayNames: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+        dayNamesShort: ['Son', 'Mon', 'Die', 'Mit', 'Don', 'Fre', 'Sam'],
+        dayNamesMin: ['S', 'M', 'D', 'M ', 'D', 'F ', 'S'],
+        weekHeader: 'Woche',
+        FirstDay: 1,
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: '',
+        timeOnlyTitle: 'Nur Zeit',
+        timeText: 'Zeit',
+        hourText: 'Stunde',
+        minuteText: 'Minute',
+        secondText: 'Sekunde',
+        currentText: 'Aktuelles Datum',
+        ampm: false,
+        month: 'Monat',
+        week: 'Woche',
+        day: 'Tag',
+        allDayText: 'Ganzer Tag'
+    };
+</script>
+
+
+ 
+<style type="text/css">
+    .value {
+        font-weight: bold;
+    }
+</style>
+		
+		<script>
+			function deletePackage(packageId)
+			{
+				var packageForm = document.getElementById("form_"+packageId);
+				console.log(packageForm);
+			}
+		</script>
+	</h:head>
+	
+	<h:body>
+	<header id="home"> 
+<!-- 	<ui:include src="/header_logged.xhtml" /> -->
+
+<nav id="menu_navbar_logged" class="navbar navbar-expand-md bg-inverse fixed-top scrolling-navbar menu-bg">
+        <div id="div11" class="container">
+          <a href="home.xhtml" class="navbar-brand"><img src="resources/img/logo.png" alt="" /></a>  
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="lni-menu"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto w-100 justify-content-end">
+              <li class="nav-item">
+                <h:outputLink class="nav-link page-scroll" value="#{loginController.goHome()}">#{findMyDestinyI18n.getI18nMessage("nav_find")}</h:outputLink>
+              </li>                            
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="hub.xhtml">Bem vindo, #{loginController.username}</a>
+              </li> 
+              <li class="nav-item">
+                <h:outputLink class="nav-link page-scroll"   value="#{loginController.logoff()}" >
+                	<i class="fa fa-arrow-left"></i>
+                	#{findMyDestinyI18n.getI18nMessage("nav_leave")}
+                </h:outputLink>
+              </li> 
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+      <!-- signup Section Start -->
+		<div id="signup" class="section">
+    		<div class="container">
+        		<div class="section-header">   
+          			<h2 class="section-title fadeIn" >#{findMyDestinyI18n.getI18nMessage("my_hub")}</h2>
+				</div>
+				
+				
+				
+				<div class="subscribe-form form-wrapper"> 
+    	    	    <div class="row">
+						<div class="col-lg-2 col-md-1 form-line" />
+            				<div class="col-lg-8 col-md-10 col-sm-12 form-line" >
+              					<div class="form-group form-search" >
+              						<h:form action="destination_search" method="get">	
+              							<h:inputText class="form-control search-place" type="email" name="search-bar" placeholder="#{findMyDestinyI18n.getI18nMessage('search_bar_message')}" value="#{findMyDestinySearch.destinationQuery}" /> 
+		              					<p:commandButton class="btn btn-common btn-search btn-search-place" action="destination_search" method="get" type="submit" style="margin:0px" actionListener="#{findMyDestinySearch.searchDestination()}" value="#{findMyDestinyI18n.getI18nMessage('nav_find')}" />
+        	      					</h:form>
+            	  				</div>
+        	    	  		</div>
+        	      		</div>
+					</div>
+				
+				
+				
+				
+				
+				
+				
+				<div class="new_package">
+					<h4>Novo Pacote</h4>
+					<h:form id="new-package-form">
+						<div class="row">
+						<p:outputLabel for="bt_start_date" value="Data de Início:" />
+        				<p:calendar id="bt_start_date" value="#{loginController.startDate}" pattern="dd/mm/yyyy"  showOn="button" />
+						</div>
+						<br />
+						<div class="row">
+						<p:outputLabel for="bt_end_date" value="Data de Termino:" />
+        				<p:calendar id="bt_end_date" value="#{loginController.endDate}" pattern="dd/mm/yyyy"  showOn="button" />
+						</div>
+						<br />
+						<p:inputText id="package_name" style="width:50%;margin-right:10px" title="Nome do pacote" name="package_name" value="#{loginController.tourPackagename}" required="true"></p:inputText>
+						<p:commandButton type="submit" resetValues="true" icon="fa fa-plus" value="Add" update="tours" action="#{loginController.newPackage}" >
+							<f:ajax render="tours" />
+						</p:commandButton>
+					</h:form>
+				</div>
+				<br />
+				<h4>Meus roteiros(não enviados)</h4>
+				<div class='search-results'>
+					<h:panelGroup id="tours">
+					</h:panelGroup>
+				</div>
+				<br />
+				<h4>Meus roteiros(enviados)</h4>
+				<div class='search-result'>
+					<h:panelGroup id='submitted-tours'>
+					</h:panelGroup>
+				</div>
+      		</div>
+    	</div>
+    </header>
+    
+    <!-- Header Section End -->
+	</h:body>
+	
+	
+    <ui:insert src="footer.xhtml" />
+</html>

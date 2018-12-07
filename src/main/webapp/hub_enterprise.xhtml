@@ -1,0 +1,92 @@
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+    
+    <h:head>
+		<ui:include src="header.xhtml" />
+		
+		<script>
+			function deletePackage(packageId)
+			{
+				var packageForm = document.getElementById("form_"+packageId);
+				console.log(packageForm);
+			}
+		</script>
+	</h:head>
+	
+	<h:body>
+	<!-- Header Section Start -->
+    <header id="home">    
+<nav id="menu_navbar_loggedent" class="navbar navbar-expand-md bg-inverse fixed-top scrolling-navbar menu-bg">
+        <div id="div11" class="container">
+          <a href="home.xhtml" class="navbar-brand"><img src="resources/img/logo.png" alt="" /></a>  
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="lni-menu"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto w-100 justify-content-end">
+              <li class="nav-item">
+                <h:outputLink class="nav-link page-scroll" value="#{loginController.goHome()}">#{findMyDestinyI18n.getI18nMessage("nav_find")}</h:outputLink>
+              </li>                            
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="hub.xhtml">Bem vindo, #{loginController.username}</a>
+              </li> 
+              <li class="nav-item">
+                <h:outputLink class="nav-link page-scroll"   value="#{loginController.logoff()}" >
+                	<i class="fa fa-arrow-left"></i>
+                	#{findMyDestinyI18n.getI18nMessage("nav_leave")}
+                </h:outputLink>
+              </li> 
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+      <!-- signup Section Start -->
+		<div id="signup" class="section">
+    		<div class="container">
+        		<div class="section-header">   
+          			<h2 class="section-title fadeIn" >#{findMyDestinyI18n.getI18nMessage("my_hub")}</h2>
+				</div>
+				
+				<div class="new_package">
+					<h3>Adicionar ponto turístico</h3>
+					<h:form id="new-place-form">						
+						<div class="row">
+							<div class="col-md-2 col-sm-4" style="text-align:right;font-size:12px">Nome:</div>
+    						<div class="col-md-10 col-sm-8"><p:inputText id="private_person_name" name="name" value="#{userController.user.name}" required="true" style="width:80%"/><br /></div>
+						</div>
+						<br />
+					</h:form>
+				</div>
+				<br />
+				<h3>Novos roteiros</h3>
+				<div class='search-results'>
+					<h:panelGroup id="new-tour">
+					</h:panelGroup>
+				</div>
+				<br />
+				<h3>Roteiros esperando confirmação</h3>
+				<div class='search-result'>
+					<h:panelGroup id='need-confirm'>
+					</h:panelGroup>
+				</div>
+				<br />
+				<h3>Roteiros confirmados</h3>
+				<div class='search-result'>
+					<h:panelGroup id='tour-confirm'>
+					</h:panelGroup>
+				</div>
+      		</div>
+    	</div>
+    </header>
+    
+    <!-- Header Section End -->
+	</h:body>
+	
+	
+    <ui:insert src="footer.xhtml" />
+</html>

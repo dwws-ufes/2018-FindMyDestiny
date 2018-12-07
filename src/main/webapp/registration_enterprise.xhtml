@@ -1,0 +1,54 @@
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+
+	<div class="row">
+		<div class="col-md-2 col-sm-4" style="text-align:right;font-size:12px">Nome Empresa</div>
+    	<div class="col-md-10 col-sm-8"><p:inputText name="name_corporation" value="#{enterpriseController.enterprise.enterpriseFullname}" required="true" style="width:80%" /><br /></div>
+	</div>
+	<br />
+	<div class="row">
+		<div class="col-md-2 col-sm-4" style="text-align:right;font-size:12px">Nome do responável</div>
+    	<div class="col-md-10 col-sm-8"><p:inputText name="name_responsible_corporation" value="#{enterpriseController.enterprise.managerName}" required="true" style="width:80%" /><br /></div>
+	</div>
+	<br />
+	<div class="row">
+		<div class="col-md-2 col-sm-4" style="text-align:right;font-size:12px">Login de acesso</div>
+    	<div class="col-md-10 col-sm-8"><p:inputText name="username_corporation" value="#{enterpriseController.enterprise.enterpriseName}" required="true" style="width:40%" /><br /></div>
+	</div>
+	<br />
+	<div class="row">
+		<div class="col-md-2 col-sm-4" style="text-align:right;font-size:12px">E-mail responsável</div>
+    	<div class="col-md-10 col-sm-8"><p:inputText name="email_corporation" value="#{enterpriseController.enterprise.email}" required="true" style="width:40%" /><br /></div>
+	</div>
+	<br />
+	<div class="row">
+		<div class="col-md-2 col-sm-4" style="text-align:right;font-size:12px">CNPJ</div>
+    	<div class="col-md-10 col-sm-8"><p:inputText name="cnpj_corporation" value="#{enterpriseController.enterprise.cnpj}" required="true" style="width:25%" /><br /></div>
+	</div>
+	<br />
+	<div class="row">
+		<div class="col-md-2 col-sm-4" style="text-align:right;font-size:12px">Endereço</div>
+    	<div class="col-md-10 col-sm-8"><p:inputText name="address_corporation" value="#{enterpriseController.enterprise.address}" required="true" style="width:40%" /><br /></div>
+	</div>
+	<br />
+	<div class="row">
+		<div class="col-lg-2 col-md-2 col-sm-4" style="text-align:right;font-size:12px">Telefone 1</div>
+    	<div class="col-lg-3 col-md-3 col-sm-8"><p:inputText name="telephone1_corporation" value="#{enterpriseController.enterprise.mainTel}" required="true" style="width:90%" /><br /></div>
+		<div class="col-lg-2 col-md-2 col-sm-4" style="text-align:right;font-size:12px">Telefone 2</div>
+    	<div class="col-lg-3 col-md-3 col-sm-8"><p:inputText name="telephone2_corporation" value="#{enterpriseController.enterprise.secondaryTel}" required="true"/><br /></div>
+	</div>
+	<br />
+	<div class="row">
+		<div class="col-md-2 col-sm-4" style="text-align:right;font-size:12px">Senha</div>
+    	<div class="col-md-10 col-sm-8"><p:password type="password" feedback="false" name="password_corporation" value="#{enterpriseController.enterprise.password}" required="true" /><br /></div>
+	</div>
+	<br />
+	<div class="submit-button" align="center">
+		<p:commandButton type="submit" styleClass="btn btn-common btn-effect" value="Confirmar dados" ajax="true" action="#{enterpriseController.createEnterprise}" update="@form" />
+	</div>
+	
+</html>
